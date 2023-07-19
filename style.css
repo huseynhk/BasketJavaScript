@@ -17,15 +17,13 @@ body {
 
 header {
   background-color: #333;
-  color: white;
   display: flex;
   justify-content: space-around;
-  padding: 30px;
+  padding: 25px;
   position: sticky;
   top: 0;
   z-index: 1;
   font-family: "Montserrat", sans-serif;
-
 }
 
 .header-title {
@@ -73,25 +71,21 @@ header {
 
 .categories {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 20px 0px;
-  gap: 15px;
+  justify-content: space-around;
 }
 
-.categories-title {
-  font-size: 35px;
-  letter-spacing: 1px;
-}
+
 
 .categories-items {
   display: flex;
   gap: 20px;
   width: 100%;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 15px;
   justify-content: center;
   background-color: rgb(255, 55, 0);
+  
 }
 
 .categories-items button {
@@ -154,8 +148,8 @@ header {
   display: block;
 }
 .product-item:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(18, 18, 37, 0.25) 0px 18px 32px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 22px -8px;
 }
 
 .product-item img {
@@ -220,7 +214,21 @@ header {
 }
 
 .product-add-to-basket-btn:hover {
+  opacity: .6;
+}
+
+.basket-product-price{
+  color: rgb(0, 255, 55);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.basket-product-totalPrice{
   color: rgb(255, 55, 0);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
 }
 
 .remove-btn{
@@ -234,14 +242,17 @@ header {
   cursor: pointer;
 }
 
+.remove-btn:hover {
+  opacity: .6;
+}
 
 .quantity-btn{
   color: white;
-  font-size: 10px;
   padding: 6px 12px;
-  border-radius: 5px;
+  border-radius: 7.5px;
   border: none;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .minus-btn{
@@ -266,22 +277,31 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
+  background-color: rgb(255, 235, 225);
 }
 
 .basket-products{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
+  margin: 0px 105px 0px 150px;
 }
 
 .basketArea h1 {
   font-size: 250%;
+  text-align: center;
 }
 
 .titleBasket{
  margin-top: 20px;
 }
+
+
+.footer{
+  background-color: #333;
+  padding: 25px;
+  text-align: center;
+}
+
 
 .basket-total{
   background-color: rgb(255, 55, 0);
@@ -295,14 +315,32 @@ header {
 }
 
 .basket-total-price{
-  margin: 15px 0px 30px;
-  background-color: #333;
   color: rgb(255, 55, 0);
-  padding: 10px 20px;
-  border-radius: 10px;
   font-size: 24px;
 }
 
 .total{
   color: #dedede;
+}
+
+.remove-all-btn{
+  background: red;
+  color: #dedede;
+  width: 17.5%;
+  font-size: 24px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0px 3px;
+}
+
+.remove-all-btn:hover {
+  opacity: .8;
+}
+
+.quantityCart{
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0px 2px;
 }

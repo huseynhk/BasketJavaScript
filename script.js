@@ -22,6 +22,8 @@ const loadBasketFromLocalStorage = () => {
   const totalQuantity = calculateTotalQuantity(basket);
   basketTotalQuantitySpan.innerHTML = totalQuantity;
 };
+document.onload = loadBasketFromLocalStorage();
+
 
 const addToBasket = (event) => {
   const selectedId = parseInt(event.target.dataset.id);
@@ -76,6 +78,7 @@ const renderProducts = (items) => {
     btn.addEventListener("click", addToBasket)
   );
 };
+document.onload = renderProducts(currentProducts);
 
 //Basket
 const renderBasketItems = () => {
@@ -86,12 +89,12 @@ const renderBasketItems = () => {
     basketItemDiv.className = "product-item";
     basketItemDiv.innerHTML = `
       <img src="${item.product.image}" alt="product-image" />
-      <p class="basket-product-name">${item.product.name}</p>
+      <p class="product-name">${item.product.name}</p>
       <p class="basket-product-quantity">
         <button class="quantity-btn minus-btn" data-id="${
           item.product.id
         }">-</button>
-        <span>${item.quantity}</span>
+        <span class="quantityCart">${item.quantity}</span>
         <button class="quantity-btn plus-btn" data-id="${
           item.product.id
         }">+</button>
@@ -99,7 +102,7 @@ const renderBasketItems = () => {
       <p class="basket-product-price">${(
         item.product.price
       ).toFixed(2)} $</p>
-      <p class="basket-product-price">${(
+      <p class="basket-product-totalPrice">${(
         item.product.price * item.quantity
       ).toFixed(2)} $</p>
       <button class="remove-btn" data-id="${item.product.id}">Remove</button>
@@ -126,6 +129,7 @@ const renderBasketItems = () => {
     button.addEventListener("click", removeFromBasket);
   });
 };
+document.onload = renderBasketItems();
 
 const increaseQuantity = (event) => {
   const selectedId = parseInt(event.target.dataset.id);
@@ -167,6 +171,8 @@ const decreaseQuantity = (event) => {
   }
 };
 
+
+
 const removeFromBasket = (event) => {
   const selectedId = parseInt(event.target.dataset.id);
   const selectedBasketItem = basket.find(
@@ -184,6 +190,8 @@ const removeFromBasket = (event) => {
     }
   }
 };
+
+
 
 const renderCategories = (items) => {
   for (let i = 0; i < items.length; i++) {
@@ -206,11 +214,9 @@ const renderCategories = (items) => {
     categoriesItems.appendChild(newCategoryBtn);
   });
 };
-
-document.onload = renderProducts(currentProducts);
 document.onload = renderCategories(currentProducts);
-document.onload = loadBasketFromLocalStorage();
-document.onload = renderBasketItems();
+
+
 
 const categoriesButtons = document.querySelectorAll(".categories-items button");
 categoriesButtons.forEach((btn) =>
@@ -234,6 +240,9 @@ categoriesButtons.forEach((btn) =>
   })
 );
 
+
+
+
 const searchBarInput = document.querySelector(".search-bar-input");
 
 searchBarInput.addEventListener("input", (event) => {
@@ -253,4 +262,14 @@ searchBarInput.addEventListener("input", (event) => {
     : emptyState.classList.remove("active");
 
   renderProducts(foundProducts);
+});
+
+
+
+const removeAllButton = document.querySelector(".remove-all-btn");
+removeAllButton.addEventListener("click", function() {
+  basket = [];
+  saveBasketToLocalStorage();
+  basketTotalQuantitySpan.innerHTML = "0";
+  renderBasketItems();
 });

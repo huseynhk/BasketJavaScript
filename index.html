@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="images/basket.png" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Basket</title>
-  </head>
-  <body>
-    <header>
-      <h1 class="header-title">
-        <span>Online Shop</span>
-      </h1>
-      <div class="search-bar">
-        <input
-          type="text"
-          class="search-bar-input"
-          placeholder="Search..."
-          autocomplete="off"
-        />
-        <div class="search-bar-icon">
-          <img src="./images/lupa.svg" alt="search-icon" />
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="images/basket.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Basket</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="header-title">
+      <span>Phone Shop</span>
+    </h1>
+    <div class="search-bar">
+      <input type="text" class="search-bar-input" placeholder="Search..." autocomplete="off" />
+      <div class="search-bar-icon">
+        <img src="./images/lupa.svg" alt="search-icon" />
       </div>
-      <div class="header-basket">
-       <a href="#"> <img src="images/basket.png" alt="" class="basketImg"> </a>
-        <p class="basket-total">Basket</p>
-      </div>
-    </header>
-    <main class="container">
-      <aside class="categories">
-        <h1 class="categories-title">Category</h1>
-        <section class="categories-items"></section>
-      </aside>
-      <section class="products"></section>
-      <p class="empty-state">Not Faund...</p>
-    </main>
+    </div>
+    <div class="header-basket">
+      <a href="#"> <img src="images/basket.png" alt="" class="basketImg"> </a>
+      <p class="basket-total">Basket</p>
+    </div>
+  </header>
+  <main class="container">
+    <aside class="categories">
+      <section class="categories-items"></section>
+    </aside>
+    <section class="products"></section>
+    <p class="empty-state">Not Faund...</p>
+  </main>
 
 
 
-    <!-- Basket -->
+  <!-- Basket -->
 
-    <hr>
+  <hr>
+
+
+  <section class="basketArea">
    
+    <div class="titleBasket">
+      <h1>Basket <a href="#basket.html"><img src="images/basket.png" alt="" class="basketImg"></a></h1>
+    </div>
 
-     <section class="basketArea">
-       <div class="titleBasket"><h1>Basket <img src="images/basket.png" alt="" class="basketImg"></h1></div>
-      <div class="basket-products"></div>
+    <div class="basket-products"></div>
+
+    <div class="footer">
       <div class="basket-total-price"></div>
-     </section>
-    
-    
-    <script src="products.js"></script>
-    <script src="main.js"></script>
-  </body>
+      <div class="remove-all-button">
+        <button class="remove-all-btn">Remove All</button>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

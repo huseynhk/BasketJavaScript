@@ -1,0 +1,85 @@
+const renderProducts = (items) => {
+  productsSection.innerHTML = "";
+  for (let i = 0; i < items.length; i++) {
+    const newProduct = document.createElement("div");
+    newProduct.className = `product-item ${items[i].sale ? "on-sale" : ""}`;
+    newProduct.innerHTML = `
+    <img src="${items[i].image}" alt="product-image" />
+    <p class="product-name">${items[i].name}</p>
+    <p class="product-description">
+   ${items[i].description}
+    </p>
+    <div class="product-price">
+    <span class="price">${items[i].price.toFixed(2)} $</span>
+    <span class="price-sale">${(items[i].price - items[i].saleAmount).toFixed(
+      2
+    )} $</span>
+    </div>
+    <button data-id="${
+      items[i].id
+    }" class="product-add-to-basket-btn">Add to Cart</button>
+<p class="product-item-sale-info">Special Offer</p>`;
+
+    productsSection.appendChild(newProduct);
+  }
+  addToBasketButtons = document.querySelectorAll(".product-add-to-basket-btn");
+  addToBasketButtons.forEach((btn) =>
+    btn.addEventListener("click", addToBasket)
+  );
+}// const addToBasket = (event) => {
+//   const selectedId = parseInt(event.target.dataset.id);
+
+//   const product = currentProducts.find((product) => product.id === selectedId);
+
+//   if (product) {
+//     basket.push(product);
+
+//     let basketTotal = 0;
+//     for (let i = 0; i < basket.length; i++) {
+//       basketTotal += basket[i].price;
+//     }
+
+//     basketTotal > 0
+//       ? basketClearBtn.classList.add("active")
+//       : basketClearBtn.classList.remove("active");
+
+//     basketAmountSpan.innerHTML = `${basketTotal.toFixed(2)} $`;
+//   }
+// };
+
+
+
+
+// const addToBasket = (event) => {
+//   const selectedId = parseInt(event.target.dataset.id);
+
+//   const key = currentProducts.findIndex((product) => product.id === selectedId);
+
+//   basket.push(currentProducts.at(key));
+
+//   const basketTotal = basket.reduce((sum, product) => {
+//     return (sum += product.price);
+//   }, 0);
+
+//   basketTotal > 0
+//     ? basketClearBtn.classList.add("active")
+//     : basketClearBtn.classList.remove("active");
+
+//   basketAmountSpan.innerHTML = `${basketTotal} $`;
+// };
+
+
+const renderBasketProducts = () => {
+  basketProductsDiv.innerHTML = "";
+  basket.forEach((item) => {
+    const newBasketProduct = document.createElement("div");
+    newBasketProduct.className = "basket-product-item";
+    newBasketProduct.innerHTML = `
+      <img src="${item.product.image}" alt="product-image" />
+      <p class="basket-product-name">${item.product.name}</p>
+      <p class="basket-product-price">${item.product.price.toFixed(2)} $</p>
+      <p class="basket-product-quantity">x${item.quantity}</p>
+    `;
+    basketProductsDiv.appendChild(newBasketProduct);
+  });
+};

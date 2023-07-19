@@ -32,7 +32,7 @@ const products = [
   },
   {
     id: 3,
-    name: "huawei p50 pro",
+    name: "Huawei p50 pro",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
     dolores eaque. Eligendi ab officia minus.`,
     category: "huawei",
@@ -41,7 +41,7 @@ const products = [
   },
   {
     id: 4,
-    name: "huawei p20 lite",
+    name: "Huawei p20 lite",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
     dolores eaque. Eligendi ab officia minus.`,
     category: "huawei",
